@@ -3,10 +3,12 @@ import { Dialog, Input } from "@rneui/themed";
 import { useEffect, useState } from "react";
 import { Button, Pressable, SafeAreaView, Text, TextInput, View } from "react-native";
 import { Icon } from 'react-native-elements'
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-export default function Home() {
+export default function Home({navigation}) {
     const [habits, setHabits] = useState([]);
     const [addHabitDialog, setAddHabitDialog] = useState(false);
     const [habitName, setHabitName] = useState("");
@@ -22,7 +24,10 @@ export default function Home() {
     };
     return(
         <SafeAreaView className = "flex-1 flex-col bg-[#FFF8EA]">
-            <Text className = "text-5xl font-bold self-start m-8">Habits</Text>
+            <View className = "felx flex-row justify-between">
+                <Text className = "text-5xl font-bold self-start m-8">Habits</Text>
+                <Icon name="menu" type="material" size={35} color="#4F3C3D" className="self-start m-8" onPress={() => {navigation.navigate("Menu")}}/>
+            </View>
             <Pressable className = "h-[18%] bg-[#FFFBF4] border-solid border border-[#4F3C3D] shadow-sm shadow-[#BAAB90] ml-4 mr-4 mb-4 rounded-lg">
                 <View className = "">
                     
